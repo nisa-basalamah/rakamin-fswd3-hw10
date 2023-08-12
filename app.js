@@ -1,9 +1,11 @@
 require("dotenv").config();
 const express = require("express");
 const app = express();
+const morgan = require("morgan");
 const router = require("./routes");
 const errorHandler = require("./middlewares/errorHandler.js");
 
+app.use(morgan("tiny"));
 app.use(express.static("uploads"));
 app.use(express.json());
 app.use(router);
